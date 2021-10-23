@@ -1,0 +1,1805 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p, label {
+    font-family: 'Open Sans', sans-serif; 
+    color: #bcbcbc;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeFromLeft {
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideTopIn {
+    to {
+        top: 15%;
+        opacity: 1;
+    }
+    
+}
+
+@keyframes scaleRight {
+    to {
+        transform: scaleX(1)
+    }
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scaleX(1)
+    }
+}
+
+@keyframes lineDown {
+    0% {
+        transform: scale(1, 0);
+        transform-origin: top center;
+    }
+
+    25% {
+        transform: scale(1, 1);
+        transform-origin: top center;
+    }
+
+    75% {
+        transform: scale(1, 1);
+        transform-origin: top center;
+    }
+
+    76% {
+        transform: scale(1, 1);
+        transform-origin: bottom center;
+    }
+
+    100% {
+        transform: scale(1, 0);
+        transform-origin: bottom center;
+    }
+}
+
+@keyframes arrowDown {
+    0% {
+        bottom: 25px;
+    }
+
+    30% {
+        bottom: 15px;
+        opacity: 1;
+    }
+
+    70% {
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 5px;
+        opacity: 0;
+    }
+}
+
+@keyframes skeletonBlur {
+    to {
+        background-position: 250% -150px;
+    }
+}
+
+@keyframes logoShorten {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -100px;
+    }
+}
+
+.jl-trigger-topbar {
+    width: 1px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 130px;
+    background: transparent;
+}
+
+.border-top-left, .border-bottom-right  {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 800;
+}
+
+.border-top-left {
+    top: 0;
+    left: 0;
+}
+
+.border-top-left::before, .border-top-left::after {
+    content: '';
+    display: block;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.border-top-left::before {
+    width: 30px;
+    height: 100vh;
+}
+
+.border-top-left::after {
+    width: 100vw;
+    height: 30px;
+}
+
+.border-top-right {
+    bottom: 0;
+    right: 0;
+}
+
+.border-bottom-right::before, .border-bottom-right::after {
+    content: '';
+    display: block;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.border-bottom-right::before {
+    width: 30px;
+    height: 100vh;
+}
+
+.border-bottom-right::after {
+    width: 100vw;
+    height: 30px;
+}
+
+@media screen and (min-width: 320px) { 
+    .jl-page-wrapper, .jl-preloader {
+        width: 100%;
+        height: 100vh;
+        display: table;
+        background-color: #1c1c1c;
+        border: 30px solid black;
+    }
+
+    .jl-preloader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .jl-preloader-inner {
+        margin-top: -45px;
+    }
+
+    .jl-overlay, .jl-menu-overlay {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        background-color: rgb(44, 203, 105, 0.95);
+    }
+
+    .jl-modal {
+        width: 90%;
+        display: none;
+        padding: 30px;
+        border-radius: 0 30px 30px 30px;
+        position: absolute;
+        top: -100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1200;
+        opacity: 0;
+    }
+
+    .jl-modal-header, .jl-modal-body, .jl-form {
+        width: 100%;
+        display: table;
+        position: relative;
+    }    
+
+    .jl-modal-header .jl-title {
+        line-height: 1;
+        margin-bottom: 5px;
+        width: 85%;
+        max-width: 100%;
+    }
+
+    .jl-close-modal {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        color: #2ccb69;
+        text-align: center;
+        line-height: center;
+        cursor: pointer;
+        position: absolute;
+        top: -5px;
+        right: 5px;
+        border: none;
+        background-color: #2f2f2f;
+    }
+
+    .jl-form label {
+        font-size: 0.9rem;        
+        margin-bottom: 3px;
+        display: inline-block;
+    }
+
+    .jl-form input {        
+        margin-bottom: 3px;
+    }
+
+    .jl-field, .jl-textarea {
+        width: 100%;
+        background-color: #2f2f2f;
+        border-radius: 4px;
+        color: #fff;
+        border: none;
+        font-size: 1rem;
+        text-indent: 10px;
+    }
+
+    .jl-field {
+        height: 45px;
+    }
+
+    .jl-top-bar {
+        width: 100%;
+        height: 110px;
+        display: block;
+        background: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 900;
+        transition: all 0.2s ease-out;
+    }
+
+    .jl-topbar-bg {
+        background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    }
+
+    .jl-logo {
+        width: 75px;
+        height: 110px;
+        float: left;
+        margin-left: 60px;
+        background-color: #2ccb69;
+        border-radius: 0 0 37px 0;
+        transition: all 0.2s ease-out;
+        position: relative;
+    }
+
+    .jl-logo img {
+        width: 46px;
+        height: 31px;
+        display: block;
+        margin: 50px auto 0;
+    }
+
+    .jl-logo-shorten {  
+        animation: logoShorten 0.2 ease-out forwards;       
+    }
+
+    .jl-logo-big {  
+        animation: logoBig 0.2 ease-out forwards;       
+    }
+
+    .jl-menu {
+        display: none;
+    }
+
+    /* CSS MENU MOBILE */
+    .jl-btn-menu-mobile {
+        width: 54px;
+        height: 54px;
+        display: block;
+        border-radius: 50%;
+        border: none;
+        background-color: #2ccb69;
+        color: black;
+        position: fixed;
+        right: 30px;
+        top: 30px;
+        z-index: 900;
+        cursor: pointer;
+    }
+
+    .jl-btn-menu-mobile ion-icon {
+        vertical-align: middle;
+    }
+
+    .jl-menu-mobile {
+        width: 240px;
+        height: 100vh;
+        display: block;
+        background-color: #000;
+        position: fixed;
+        top: 0;
+        z-index: 1200;
+        padding: 100px 30px 30px;
+        transition: all 350ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .jl-menu-is-open {
+        right: 0;
+    }
+
+    .jl-menu-is-closed {
+        right: -240px;
+    }
+
+    .jl-menu-mobile a {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        line-height: 60px;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        text-decoration: none;
+    }
+    /* FIM MENU MOBILE */
+
+    .jl-btn-contact {
+        width: 45px;
+        height: 45px;
+        display: block;
+        background-color: #2ccb69;
+        background-image: url('../imagens/icon-contact-close.svg');
+        background-repeat: no-repeat;
+        position: fixed;
+        bottom: 45px; 
+        right: 45px;
+        border-radius: 50%;
+        z-index: 200;
+        transition: all 200ms step-start;
+        border: none;
+        cursor: pointer;
+    }
+
+    .jl-contact-info {
+        width: 245px;
+        height: 165px;
+        padding: 25px;
+        position: fixed;
+        bottom: 115px;
+        right: 65px;
+        z-index: 200;
+        display: none;
+    }
+
+    .jl-contact-info-inner {
+        display: table;
+        width: 100%;
+        float: left;
+    }
+
+    .jl-contact-info-inner p {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+
+    .jl-social-links, .jl-social-links-circle {
+        width: 100%;
+        height: 45px;
+        display: block;
+        position: relative;
+        left: -12px;
+        margin-top: 7px;
+    }
+
+    .jl-social-links-circle {
+        left: 0px;
+    }
+
+    .jl-social, .jl-social-links-circle .jl-social {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+    }
+
+    .jl-social-links-circle .jl-social {
+        border-radius: 50%;
+        text-align: center;
+        transition: all 0.2s ease-out;
+    }
+
+    .jl-social-links-circle .jl-social ion-icon {
+        height: 45px;
+        color: black;
+        transition: all 0.2s ease-out;
+    }
+
+
+    .jl-social-links-circle .jl-social:hover {
+        background-color: black;
+    }
+
+    .jl-social-links-circle .jl-social:hover ion-icon {
+       color: #2ccb69;
+    }
+
+    .jl-social > img {
+        width: 20px;
+        height: auto;
+        display: block;
+        margin: 13px auto 0;
+    }
+
+    .jl-corner {
+        width: 25px;
+        height: 25px;
+        display: block;
+        float: right;
+        display: relative;
+    }
+
+    .jl-corner::after {
+        content: '';
+        width: 24px;
+        height: 25px;
+        display: block;
+        float: right;
+        position: absolute;
+        bottom: -23px;
+        right: 0;
+        background: transparent url('../imagens/corner.svg') no-repeat;
+    }
+
+    /* HOME */
+    .jl-display-text{
+        margin-top: 10%;
+    }
+
+    .jl-home-presentation {
+        background-image: url(../imagens/joao-lemon-designer-home.png);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: 50% bottom;
+        position: relative;
+    }
+
+    .jl-home-presentation h1 {
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .jl-home-presentation p {
+        text-align: center;
+    } 
+
+    .jl-home-presentation .jl-btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .jl-scroll-down {
+        width: 70px;
+        height: 135px;
+        border-radius: 35px 35px 0 0;
+        background-color: #2ccb69;
+        display: block;
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        margin: 0 auto;
+        z-index: 100;
+    }
+
+    .jl-arrow-down {
+        width: 100%;
+        height: 75px;
+        display: table;
+        margin-top: 30px;
+        position: relative;
+        box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .jl-arrow-down img {
+        width: 16px;
+        height: 10px;
+        display: block;
+        left: 0; right: 0; bottom: 25px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 15px;
+        opacity: 0;
+        animation: arrowDown 1.5s linear 1.5s infinite;
+    }
+
+    .jl-arrow-down::before {
+        content: '';
+        width: 2px;
+        height: 45px;
+        display: block;
+        position: absolute;
+        bottom: 25px; left: 0; right: 0;
+        margin: 0 auto;
+        background-color: black;
+        animation: lineDown 1.5s ease-out infinite;
+        transform-origin: top center;
+    }
+
+    /*--- HOME PORTIFOLIO ---*/
+
+    .jl-portifolio-navegator {
+        width: 68%;
+        height: auto;
+        display: table;
+        position: relative;
+        left: 0;
+        top: 35px;
+    }
+
+    .jl-navigator-counter {
+        width: 100%;
+        height: 90px;
+        display: block;
+        margin-bottom: 60px;
+        position: relative;
+    }
+
+    .jl-navigator-counter::before {
+        content: '';
+        display: block;
+        width: 35px;
+        height: 100%;
+        background-color: #1c1c1c;
+        position: absolute;
+        top: 3px;
+        left: 0px;
+    }
+
+    .jl-navigator-counter span {
+        color: #2ccb69;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 7.5rem;
+        line-height: 90px;
+        font-weight: 600;
+    }
+
+    .jl-item-navigator {
+        display: table;
+        width: 100%;
+    }    
+
+    .jl-item-navigator a.jl-item-active {
+        width: 85px;
+        background-color: #2ccb69;
+    }
+
+    .jl-item-navigator a {
+        display: block;
+        width: 20px;
+        height: 1px;
+        display: block;
+        margin: 0 0 80px 35px;
+        background-color: #4d4c4c;  
+    }
+
+    .jl-item-navigator a:last-child {
+        margin-bottom: 30px;
+    }
+
+    .jl-portifolio-next-prev {
+        width: 100%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #2c2c2c;
+        border-radius: 0 23px 23px 0;
+    }
+
+    .jl-item-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    
+
+    .jl-portifolio-next-prev > div {
+        height: 32px;
+    }
+
+    .jl-items-counter {
+        display: flex;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.1rem;
+        color: #4d4c4c;
+    }
+
+   
+    .jl-item-prev, .jl-item-next {
+        padding-top: 3px;
+        width: 45px;
+        color: #2ccb69;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .jl-items-counter  span:nth-child(1){
+        font-family: 'Open Sans', sans-serif;
+        color: #bcbcbc;
+    }
+
+    .jl-items-counter span:nth-child(2){
+        color: #4D4C4C;
+     }
+
+    ion-icon {
+        font-size : 28px;
+     }
+
+     .jl-slider-container {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 120px;
+     }
+
+     .jl-slider-list {
+         width: auto;
+         display: block;
+         list-style: none;
+     }
+
+     .jl-slider-list .jl-portfolio-item {
+        display: block;
+        height: auto;
+        float: left;  
+        margin-top: 0;    
+     }
+
+     .jl-slider-list .jl-portifolio-item-info {
+        width: 100%;
+        display: table;
+        margin-top: 30px;
+        position: relative;
+        opacity: 0;
+     }
+
+     .jl-portfolio-list .jl-portifolio-item-info {
+        width: calc(100% - 105px);
+     }
+
+     .jl-slider-list .jl-portifolio-item-info p, .jl-portifolio-item-info p  {
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0 10px;
+     }
+
+     .jl-portfolio-list .jl-portfolio-item {
+         margin-bottom: 100px;
+     }
+
+     .jl-portifolio-item-info a {
+        text-decoration: none;
+     }
+
+    .jl-portfolio-list {
+        list-style: none;
+     }
+
+     .jl-slider-list .jl-portifolio-item-thumb {
+        width: 100%;
+        position: relative;
+        display: table;
+        padding: 20px 0;
+     }
+
+     .jl-slider-list .jl-portifolio-item-thumb > .jl-btn {
+        margin: 17px auto 0 auto;
+        float: none;
+     }
+
+    .jl-portfolio-list .jl-portifolio-item-info, .jl-portfolio-item .jl-btn {
+        margin: 10px auto 0 auto;
+    }
+
+     .jl-slider-list .jl-portifolio-item-box {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #2C2C2C;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: right;
+     }
+
+    .jl-slider-list .jl-portifolio-item-thumb img { 
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        left: 5%;
+        transform: scale(0);
+     }
+
+    /*----PORTFOLIO---*/
+    .jl-portfolio-list .jl-portifolio-item-thumb img  {
+       width: 100%;
+       max-width: 100%;
+       height: auto;
+       position: relative;
+    }
+    
+     .jl-section-offset-top {
+         margin-top: 130px;
+     }
+
+
+     .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info{
+        text-align: right;
+        margin-top: 70px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info .jl-btn {
+        float: right;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info{
+        margin-left: 105px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) > .row {
+        flex-direction: row-reverse;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb .jl-btn {
+        float: left;
+        margin-left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img{
+        display: block;
+    }
+
+      /*--- SOBRE ---*/
+      .jl-section-sobre {
+          height: calc(100% - 130px);
+      }
+
+      .jl-section-sobre .container-fluid, .jl-section-sobre .container-fluid > .row {
+          height: 100%;
+      }
+
+      #jl-sobre-avatar {
+        position: relative;
+        height: 450px;
+      }
+
+      .jl-box-img {
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: 0;
+    }
+
+      .jl-titulo-sobre, .jl-info-sobre, .jl-premios-sobre {
+          width: 100%;
+          display: table;
+          float: left;
+          margin-bottom: 30px;
+      }
+
+      /*--- DETALHES ---*/
+
+    .jl-hero-banner {
+        background-image: url('../portfolio/manage-it/img/hero.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: block;
+    }
+
+    .jl-hero-banner h1 {
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+
+    .jl-position-relative {
+        position: relative;
+    }
+
+    .jl-hero-inner {
+        display: table;
+        padding: 65px 0;
+    }
+
+    .jl-hero-inner-content {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: block;
+        padding: 10px 20px 20px;
+    }
+
+    .jl-hero-inner-content p {
+        margin-bottom: 15px;
+    }
+
+    .jl-project-stats {
+        width: 100%;
+        height: 100%;
+        display: table;
+        border-radius: none;
+    }
+
+    .jl-project-description {
+        margin-top: 30px;
+    }
+
+    .jl-post {
+        width: 100%;
+        display: table;
+    }
+
+    .jl-post p {
+        margin-bottom: 30px;
+    }
+
+    .jl-post-section {
+        display: table;
+        width: 100%;
+        padding: 45px 0;
+    }
+
+    .jl-pre-gallery {
+        padding-bottom: 350px;
+    }
+
+    .jl-post-gallery {
+        display: block;
+    }
+
+    .jl-post-gallery .container {
+        position: relative;
+        top: -270px;
+    }
+
+    .jl-gallery-frame-container {
+        width: 60%;
+        display: none;
+        position: fixed;
+        top: 30px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        z-index: 1100;
+    }
+
+    .jl-thumb-box {
+        width: 100%;
+        display: table;
+        position: relative;
+    }
+
+    .jl-thumb-box::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: 700;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(44, 203, 105, 0.85);
+        background-image: url('../imagens/icon-see-more.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .jl-thumb-box:hover::before {
+        display: block;   
+        cursor: pointer;     
+    }
+
+    .jl-gallery-frame-container .jl-portifolio-next-prev {
+        border-radius: 23px;
+    }
+
+    .jl-gallery-frame-inner {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+
+    .jl-gallery-frame-inner .jl-skeleton-loading {
+        width: 88%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        position: absolute;
+        top: 3%;
+        left: 6%;
+        z-index: 1250;
+    }
+
+    .jl-gallery-frame-inner .jl-skeleton-loading > div {
+        background-color: rgba(231, 231, 231, 0.60);
+        margin: 10% 0;
+        width: 85%;
+        border-radius: 8px;
+        background-image: url('../imagens/skeleton-loading-blur.svg');
+        background-repeat: no-repeat;
+        background-position: -100% -150px;
+        animation: skeletonBlur 2s infinite ease-out;
+    }
+
+    .jl-gallery-frame-inner .jl-skeleton-loading > div:first-child, .jl-gallery-frame-inner .jl-skeleton-loading > div:last-child {
+        height: 15%;
+    }
+
+    .jl-gallery-frame-inner .jl-skeleton-loading > div:nth-child(2) {
+       height: 60%;
+    }
+
+    .jl-gallery-frame-container .jl-portifolio-next-prev {
+        width: 150px;
+        margin: 50px auto 0 auto;
+    }
+
+    .jl-close-gallery {
+        width: 45px;
+        height: 45px;
+        display: block;
+        position: absolute;
+        top: -15px;
+        right: -45px;
+        border: none;
+        border-radius: 50%;
+        z-index: 1200;
+        background-color: black;
+    }
+
+    .jl-close-gallery ion-icon {
+        color: #2ccb69;
+        position: relative;
+        top: 1px;
+        cursor: pointer;
+    }
+
+    .jl-gallery-frame {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1300;
+    }
+
+    .jl-gallery-frame-image {
+        width: 88%;
+        max-width: 88%;
+        margin: 0 auto;
+        position: relative;
+        top: 15px;
+        display: block;
+        z-index: 1200;
+        border-radius: 30px;
+    }
+
+    .jl-img-responsive {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Utilitarias */
+    .jl-title-xlarge {
+        font-size: 5.6rem;
+    }
+
+    .jl-title-large {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .jl-slider-list .jl-portifolio-item-info .jl-btn {
+        margin: 0 auto;
+    }
+
+    .jl-full-height {
+        height: auto;
+        position: relative;
+        padding-bottom: 50px;
+    }
+
+    .jl-text-center-mob {
+        text-align: center;
+    }
+
+    /* ------ 404 ------ */
+    .erro-404-page p, .erro-404-page h1 {
+        text-align: center;
+    }
+    
+    .erro-404-page a {
+        text-decoration: none;
+        line-height: 45px;
+    }
+
+    .erro-404-page h1 {
+        font-size: 4rem;
+        margin-bottom: 15px;
+    }
+
+    .erro-404-page .jl-btn {
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+
+    .jl-404 img {
+        width: 80%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .jl-gallery-frame-container {
+        width: 70%;
+        top: 50px;  
+    }
+}
+
+@media screen and (min-width: 400px) {
+    #jl-avatar-sobre {
+        height: 400px;
+    }
+
+    .jl-box-img {
+        width: 330px;
+    }
+}
+
+@media screen and (min-width: 576px) { 
+    .jl-hero-inner-content {
+        padding: 55px 65px 65px;
+    }
+
+    .erro-404-page h1 {
+        font-size: 6.5rem;
+    }
+}
+
+@media screen and (min-width: 700px) { 
+    .jl-home-presentation {
+        background-size: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) { 
+    .jl-home-presentation {
+        background-size: 80%;
+    }
+
+    .jl-title-large {
+        font-size: 3rem;
+    }
+
+    .jl-text-center-mob {
+        text-align: left;
+    }
+
+    .jl-titulo-sobre h1 {
+        font-size: 5rem;
+    }
+
+    .jl-info-sobre {
+        width: 50%;
+    }
+
+    .jl-premios-sobre {
+        width: 35%;
+        padding-left: 30px;
+    }
+
+    .jl-box-img {
+        width: 50%;
+        height: 100%;
+    }
+}
+
+
+@media screen and (min-width: 992px) { 
+    .jl-menu-mobile, .jl-btn-menu-mobile {
+        display: none;
+    }
+    
+    .jl-menu {
+        display: table;
+        float: left;
+        height: 110px;
+        margin-left: 30px;
+    }
+
+    .jl-menu a {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+        color: #2ccb69;
+        font-weight: 400;;
+        color: #bcbcbc;
+        text-decoration: none;
+        text-transform: uppercase;
+        display:  inline-block;
+        margin: 50px 20px 0 20px;
+        position: relative;
+    }
+
+    .jl-menu a:first-child {
+        margin-left: 0; /* usando first-child eu removi o padding do left para ficar todos com a margem iguais */
+    }
+
+    .jl-menu a:hover {
+        color: #2ccb69;
+        font-weight: 900;
+    }
+
+    /* ANIMAÇÃO DOS BOTÕES DO MENU */
+    .jl-menu a::before {
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: #2ccb69;
+        display: block;
+        position: absolute;
+        bottom: -6px; left: 0;
+        transition: all 200ms ease-out;
+        transform: scale(0, 1);
+        transform-origin: center left;
+    }
+
+    .jl-menu a:hover::before {
+        transform: scale(1, 1);
+    }
+
+    .jl-title-xlarge {
+        font-size: 7.5rem;
+    }
+
+    .jl-home-presentation {
+        background-size: auto;
+    }
+
+    .jl-home-presentation h1 {
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .jl-home-presentation p {
+        text-align: left;
+    }
+
+    .jl-home-presentation .jl-btn {
+        margin-left: 0;
+    }
+    /* FIM DA ANIMAÇÃO DOS BOTÕES MENU */
+
+    .jl-title-large, .jl-slider-list .jl-portifolio-item-info p {
+        text-align: left;
+    }
+
+    .jl-portifolio-navegator {
+        width: 145px;
+        height: 400px;
+        top: 26vh;  
+    }
+
+    .jl-slider-list .jl-portfolio-item {
+        display: block;
+        height: 500px;
+        list-style: none;
+        float: left;
+        margin-top: calc(26vh - 75px);         
+     }
+
+    .jl-slider-list .jl-portifolio-item-info .jl-btn {
+        margin: 0;
+    }
+
+    .jl-slider-list .jl-portifolio-item-thumb {
+        padding: 30px 0;
+        margin-top: 50px;
+     }
+
+     .jl-slider-list .jl-portifolio-item-thumb img {
+        width: 120%;
+        max-width: 120%;
+        left: -105px;
+    }
+
+    .jl-slider-list .jl-portifolio-item-thumb > bu.jl-btntton {
+        margin-top: 22px;
+        margin-right: 28px;
+        float: right;
+     }
+
+     /* PAG PORTFOLIO */
+
+     .jl-portfolio-list .jl-portifolio-item-thumb {
+        width: 100%;
+        display: table;
+        padding: 75px 0 19px 0;
+        position: relative;
+    }
+
+     .jl-portfolio-list .jl-portifolio-item-box {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #2C2C2C;
+        position: absolute;
+        top: 0;
+        left: 0;
+     }
+
+    .jl-portfolio-list .jl-portifolio-item-info {
+        padding-top: 62px;
+    }
+
+     .jl-portfolio-item {
+         margin-bottom: 50px;
+     }
+
+
+     .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-info{
+        text-align: right;
+        margin-top: 0px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-info .jl-btn {
+        float: right;
+        margin-right: 50px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-info h1, .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-info p{
+        text-align: right;
+        margin-right: 50px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-info{
+        margin-left: 105px;
+        margin-top: 0px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-info .jl-btnton {
+        float: left;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-info h1, .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-info p{
+        text-align: left;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-thumb img{
+        left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-thumb img{
+        left: -75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portifolio-item-thumb .jl-btn{
+        float: left;
+        margin-left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portifolio-item-thumb .jl-btn{
+        float: right;
+        margin-right: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img{
+        left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-thumb img{
+        left: -75px;
+    }
+
+     .jl-navigator-counter span {
+        font-size: 6.5rem;   
+    }
+
+    .jl-portifolio-item-info .jl-title {
+        font-size: 3rem;
+     }
+
+    /* DETALHES */ 
+    .jl-project-stats {
+        border-right: 1px solid #2ccb69;
+    }
+
+    .jl-project-description {
+        margin-top: 0px;
+    } 
+
+    /* UTILITÁRIAS  */
+    .jl-full-height {
+        height: 100vh;
+    }
+
+    .jl-gallery-frame-container {
+        width: 320px;
+        top: 30px;  
+    }
+
+    /* SOBRE */
+    #jl-sobre-avatar {
+        height: 100%;
+    }
+
+    .jl-box-img {
+        display: table;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+   
+    .jl-titulo-sobre, .jl-info-sobre, .jl-premios-sobre {
+        width: 100%;
+    }
+
+    .jl-info-sobre {
+        width: 55%;
+    }
+
+    .jl-premios-sobre {
+        width: 45%;
+        padding-left: 30px;
+    }
+
+    /* --- 404 ---*/
+    .erro-404-page p, .erro-404-page h1 {
+        text-align: left;
+    }
+
+    .erro-404-page h1 {
+        margin-bottom: 50px;
+    }
+
+    .erro-404-page .jl-btn {
+        margin: 0;
+        margin-top: 15px;
+    }
+
+    .jl-404 img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1024px) {
+    #jl-sobre-avatar {
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 1200px) { 
+    .jl-modal {
+        width: 800px;
+    }
+
+    .jl-modal-header .jl-title {
+        margin-bottom: 15px;
+    }
+
+    .jl-form label {
+        font-size: 1rem;        
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .jl-form input {        
+        margin-bottom: 15px;
+    }
+
+    .jl-title-large {
+        font-size: 4rem;
+    }
+
+    .jl-slider-list .jl-portifolio-item-box {
+        height: 93%;
+    }
+
+    .jl-slider-list .jl-portifolio-item-thumb {
+        padding: 75px 0;
+        margin-top: 0;
+     }
+
+     .jl-slider-list .jl-portifolio-item-thumb img {
+        width: 100%;
+        max-width: 100%;
+        left: -75px;
+    }
+
+    .jl-slider-list .jl-portifolio-item-thumb > .jl-btn {
+        margin-top: 18px;
+        margin-right: 73px;
+        float: right;
+     }
+
+     .jl-portifolio-item-info .jl-title {
+        font-size: 4rem;
+     }
+
+     .jl-navigator-counter span {
+        font-size: 7.5rem;   
+    }
+
+    .jl-gallery-frame-container {
+        width: 340px;
+    }
+}
+
+@media screen and (min-width: 1364px) { 
+    .jl-title-large {
+        font-size: 5rem ;
+    }
+}
+
+@media screen and (min-width: 1600px) { 
+    .jl-gallery-frame-container {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 1740px) { 
+    .jl-info-sobre {
+        width: 35%;
+    }
+
+    .jl-premios-sobre {
+        width: 31%;
+    }
+}
+
+/* BOTÕES */
+
+    .jl-btn {
+        display: table;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        text-align: center;
+        border: none;
+        margin-top: 10px;
+        transition: all 0.2s ease-out;
+        text-transform: lowercase;
+        position: relative;
+    }
+
+    .jl-btn ion-icon {
+        font-size: 14px;
+        position: relative;
+        top: 1px;
+    }
+
+    .jl-btn-block {
+        display: block;
+        width: 100%;
+    }
+
+
+    .jl-btn-small {
+        height: 28px;
+        padding: 0 20px;
+        border-radius: 14px;
+        font-size: 0.7rem;
+        line-height: 28px;
+    }
+
+    .jl-btn-medium {
+        height: 38px;
+        padding: 0 20px;
+        border-radius: 19px;
+        font-size: 0.8rem;
+        line-height: 38px;
+    }
+
+    .jl-btn-large {
+        height: 45px;
+        padding: 0 35px;
+        border-radius: 23px;
+        font-size: 1rem;
+        line-height: 45px;
+    }
+
+    .jl-btn-green {
+        background-color: #2ccb69;
+        color:#151515;
+    }
+
+    .jl-btn-green:hover {
+        background-color: rgb(6, 135, 55);
+        color:#fff;
+    }
+
+    .jl-btn-dark {
+        background-color: #151515;
+        color:#2ccb69;
+    }
+
+    .jl-btn-dark:hover {
+        background-color: rgb(29, 29, 29);
+        color: rgb(45, 255, 126);
+        text-decoration: underline;
+    }
+
+/* FIM BOTÕES */
+
+/* CLASSES UTILITÁRIAS */
+
+.jl-title {
+    font-family: 'Abril Fatface', serif;
+    font-weight: normal;
+}
+
+.jl-subtitle {
+    font-family: 'Open Sans', serif;
+    font-weight: 800;
+}
+
+.jl-title-medium {
+    font-size: 3rem;
+
+}
+
+
+.jl-title-xlarge {
+    font-size: 6.5rem;
+}
+
+.jl-text-green {
+    color: #2ccb69;
+}
+
+.jl-text-dark {
+    color: #4d4c4c;
+}
+
+.jl-text-light {
+    color: #bcbcbc;
+}
+
+.jl-text-black {
+    color: #000;
+}
+
+.jl-text-center {
+    text-align: center;
+}
+
+.jl-bg-green {
+    background-color: #2ccb69;
+}
+
+.jl-bg-dark {
+    background-color: #4d4c4c;
+}
+
+.jl-bg-light {
+    background-color: #bcbcbc;
+}
+
+.jl-bg-black {
+    background-color: #000;
+}
+
+.jl-mar-15 {
+    margin: 15px;
+}
+
+.jl-mar-top-15 {
+    margin-top: 15px;
+}
+
+.jl-mar-right-15 {
+    margin-right: 15px;
+}
+
+.jl-mar-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.jl-mar-left-15 {
+    margin-left: 15px;
+}
+
+.jl-padding-15 {
+    padding: 15px;
+}
+
+.jl-padding-top-15 {
+    padding-top: 15px;
+}
+
+.jl-padding-right-15 {
+    padding-right: 15px;
+}
+
+.jl-padding-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.jl-padding-left-15 {
+    padding-left: 15px;
+}
+
+.jl-first-section {
+    height: calc(100vh - 30px);
+}
+
+.jl-no-padding {
+    padding: 0 !important;
+}
+
+.jl-mar-30 {
+    margin: 30px;
+}
+
+.jl-mar-top-30 {
+    margin-top: 30px;
+}
+
+.jl-mar-right-30 {
+    margin-right: 30px;
+}
+
+.jl-mar-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.jl-mar-left-30 {
+    margin-left: 30px;
+}
+
+.jl-padding-30 {
+    padding: 30px;
+}
+
+.jl-padding-top-30 {
+    padding-top: 30px;
+}
+
+.jl-padding-right-30 {
+    padding-right: 30px;
+}
+
+.jl-padding-bottom-30 {
+    padding-bottom: 30px;
+}
+
+.jl-padding-left-30 {
+    padding-left: 30px;
+}
+
+.jl-first-section {
+    height: calc(100vh - 30px);
+}
+
+.jl-no-padding {
+    padding: 0 !important;
+}
+
+.jl-page-list { 
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.jl-page-list > li { 
+    font-size: 0.9rem;
+    line-height: 21px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.jl-page-list > li::before { 
+    content: '';
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    background-color: #2ccb69;
+}
+
+/* FIM CLASSES UTILITÁRIAS */
+
+
+/* CLASSES COMPORTAMENTOS */
+.jl-is-open {
+    display: block;
+}
+
+.jl-slide-top-in {
+    animation: slideTopIn 0.6s forwards cubic-bezier(0, 1.11, 1, 0.59);
+}
+
+.jl-change-icon {
+    background-position-y: -45px;
+}
+
+.jl-fade-out {
+    animation: fadeOut 2s forwards ease-out;
+}
+
+.jl-fade-from-left {
+    animation: fadeFromLeft 2s 1s forwards cubic-bezier(0,1.01,.32,1);
+}
+
+.jl-scale-right {
+    animation: scaleRight 0.7s 0.2s forwards cubic-bezier(0,1.01,.32,1);
+}
+
+.jl-scale-up {
+    animation: scaleUp 0.5s 0.5s forwards cubic-bezier(0,1.01,.32,1);
+}
+
+.jl-no-radius-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+} 
+
+.jl-no-radius-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+} 
+/* FIM CLASSES COMPORTAMENTOS */
+
+
+
+
