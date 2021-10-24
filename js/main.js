@@ -57,7 +57,7 @@ for (var i = 0; i < toggleModal.length; i++) {
 
 // Animando Elementos do Topbar
 var triggerTopbar = document.querySelector('.jl-trigger-topbar');
-var topbar = document.querySelector('.jl-top-bar');
+var topbar = document.querySelector('.jl-topbar');
 var logo = document.querySelector('.jl-logo');
 var waypoint = new Waypoint({
     element: triggerTopbar,
