@@ -1,5 +1,5 @@
 # SITE DE PORTFÓLIO JOÃO LEMON
-***
+
 ## Introdução
 Projeto de conclusão do curso __[Front-End Design Essencial - HTML, CSS e JS Completo do Zero](https://www.udemy.com/course/front-end-essencial/)__. São mais de 49 horas administrada pelo o professor Bruno Sousa trabalhando em conjunto para desenvolver o projeto.
 
