@@ -23,9 +23,6 @@ Todo o site é responsivo para smartphones, tablets e desktops.
 ***
 ## Desktop João Lemon
 [![unknown-2021-10-24-20-30.gif](https://i.postimg.cc/JhThn1qC/unknown-2021-10-24-20-30.gif)](https://postimg.cc/t1xbvGwB)
-[unknown-2021-10-24-20-34.gif](https://i.postimg.cc/rpT4WFxd/unknown-2021-10-24-20-32.gif)
-
-[![unknown-2021-10-24-20-34.gif](https://i.postimg.cc/R0THT5Lg/unknown-2021-10-24-20-34.gif)](https://postimg.cc/nsCrHW5m)
 ***
 ## Mobile João Lemon
 [![mobile-jl-004.png](https://i.postimg.cc/XJPN3Qgf/mobile-jl-004.png)](https://postimg.cc/9RGHYPK0)
