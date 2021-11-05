@@ -67,4 +67,3 @@ var waypoint = new Waypoint({
     },
     offset: '30px'
 });
-//  FAZER JL-TOP-BAR DEPOIS QUE FIQUE FIXO COM BACKGROUND WHITE
