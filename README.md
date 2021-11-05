@@ -1,5 +1,5 @@
 # SITE DE PORTFÓLIO JOÃO LEMON
-***
+
 ## Introdução
 Projeto de conclusão do curso __[Front-End Design Essencial - HTML, CSS e JS Completo do Zero](https://www.udemy.com/course/front-end-essencial/)__. São mais de 49 horas administrada pelo o professor Bruno Sousa trabalhando em conjunto para desenvolver o projeto.
 
@@ -23,8 +23,6 @@ Todo o site é responsivo para smartphones, tablets e desktops.
 ***
 ## Desktop João Lemon
 [![unknown-2021-10-24-20-30.gif](https://i.postimg.cc/JhThn1qC/unknown-2021-10-24-20-30.gif)](https://postimg.cc/t1xbvGwB)
-[![unknown-2021-10-24-20-32.gif](https://i.postimg.cc/rpT4WFxd/unknown-2021-10-24-20-32.gif)](https://postimg.cc/4Y8nRG8Z)
-[![unknown-2021-10-24-20-34.gif](https://i.postimg.cc/R0THT5Lg/unknown-2021-10-24-20-34.gif)](https://postimg.cc/nsCrHW5m)
 ***
 ## Mobile João Lemon
 [![mobile-jl-004.png](https://i.postimg.cc/XJPN3Qgf/mobile-jl-004.png)](https://postimg.cc/9RGHYPK0)
