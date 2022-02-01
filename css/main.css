@@ -687,19 +687,21 @@ p, label {
         display: block;
         overflow: hidden;
         padding-bottom: 120px;
+        background-color: blue;
      }
 
      .jl-slider-list {
          width: auto;
          display: block;
          list-style: none;
+         background-color: blueviolet;
      }
 
      .jl-slider-list .jl-portfolio-item {
         display: block;
         height: auto;
         float: left;  
-        margin-top: 0;    
+        margin-top: 0;   
      }
 
      .jl-slider-list .jl-portfolio-item-info {
@@ -1206,7 +1208,7 @@ p, label {
         background-color: var(--cor01);
         display: block;
         position: absolute;
-        bottom: -6px; left: 0;
+        bottom: -6px; left: 0px;
         transition: all 200ms ease-out;
         transform: scale(0, 1);
         transform-origin: center left;
