@@ -687,14 +687,12 @@ p, label {
         display: block;
         overflow: hidden;
         padding-bottom: 120px;
-        background-color: blue;
      }
 
      .jl-slider-list {
          width: auto;
          display: block;
          list-style: none;
-         background-color: blueviolet;
      }
 
      .jl-slider-list .jl-portfolio-item {
